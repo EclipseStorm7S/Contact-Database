@@ -6,14 +6,6 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-# Now 'db' is your Firestore client, and you can start interacting with your database
-# For example, to get a document:
-# doc_ref = db.collection('users').document('alovelace')
-# doc = doc_ref.get()
-# if doc.exists:
-#     print(f"Document data: {doc.to_dict()}")
-# else:
-#     print("No such document!")
 running = True
 while running:
     print("Welcome! Would you like to view, create, or delete contact info?n\n1) View\n2) Create\n3) Edit\n4) Delete\n5) Exit")
@@ -87,31 +79,3 @@ while running:
             running = False
         case _:
             print("Invalid choice. Enter a number between 1 and 5.")
-
-
-# users_ref = db.collection("users")
-# users_ref.document("frank").set({
-#     "name": "Frank",
-#     "favorites": {"food": "Pizza", "color": "Blue", "subject": "Recess"},
-#     "age": 12
-# })
-
-# doc_ref = db.collection("users").document("frank")
-# doc = doc_ref.get()
-# if doc.exists:
-#     print(f"Document data: {doc.to_dict()}")
-# else:
-#     print("No such document!")
-
-# # Query for documents in a collection (e.g., all users older than 18)
-# # For more complex queries, you might use .where() clauses
-# users_query = db.collection("users").where("age", ">", 18).stream()
-# for user in users_query:
-#     print(f"{user.id} => {user.to_dict()}")
-
-# # Update specific fields in a document
-# frank_ref = db.collection("users").document("frank")
-# frank_ref.update({"age": 13, "favorites.color": "Red"}) # Updates age and nested color
-
-# # Delete a document
-# db.collection("users").document("frank").delete()
